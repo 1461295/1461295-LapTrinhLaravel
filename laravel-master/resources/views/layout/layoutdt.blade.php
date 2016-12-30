@@ -28,8 +28,9 @@
                     <a href="/">Trợ giúp</a>
                     <a href="/signin" class="last">Đăng nhập</a>
                 </div>
-                <form action="#">
-                    <input type="text" id="search" maxlength="30" />
+                <form action="/timkiem" method="get">
+                    <input type="hidden" name="_token" value="{{csrf_token()}}";>
+                    <input type="text" name = "tukhoa" id="search"  maxlength="30" />
                     <input type="submit" value="" id="searchbtn" />
                 </form>
             </div>

@@ -7,9 +7,10 @@
  */
 
 namespace App\Http\Controllers;
+//use App\Http\Requests\Request;
 use App\User;
 use App\Http\Controllers\Controller;
-//use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use DB;
 
 class TrangChuController extends Controller
@@ -24,6 +25,13 @@ class TrangChuController extends Controller
     {
         $sanpham = DB::table('SanPham')->select('TenSP', 'GiaBan', 'HinhAnh', 'MoTa', 'MaSP')-> where('MaLoai', '=', $MaLoai)->skip(0)->take(6)->get();
         return view('layout.productdt', compact('sanpham'));
+    }
+
+    public function timkiem(Request $request)
+    {
+        $tukhoa = $request->tukhoa;
+        $sanpham = DB::table('SanPham')->select('TenSP', 'GiaBan', 'HinhAnh', 'MoTa', 'MaSP')-> where('TenSP', 'like', "%$tukhoa%") -> orwhere('GiaBan', '=', (int)$tukhoa)->skip(0)->take(6)->get();
+        return view('layout.ketquatimkiem', compact('sanpham'));
     }
 
 

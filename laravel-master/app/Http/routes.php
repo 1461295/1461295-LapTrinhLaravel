@@ -53,3 +53,4 @@ Route::get('/SanPham/{MaSP}', 'MenuController@ChiTietSP');
 
 Route::get('/Loai/{MaLoai}', 'TrangChuController@LoaiSP');
 
+Route::get('/timkiem','TrangChuController@timkiem');
