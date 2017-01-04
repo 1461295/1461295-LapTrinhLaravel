@@ -1,4 +1,8 @@
 <?php namespace App\Http\Controllers;
+use App\User;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use DB;
 
 class HomeController extends Controller {
 
@@ -30,7 +34,9 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('home');
+        $loaisanpham = DB::table('LoaiSP')->select('TenLoai', 'MaLoai')->skip(0)->take(3)->get();
+        return view('layout.dangnhap.trangchudangnhap', compact('loaisanpham'));
+		//return view('home');
 	}
 
 }

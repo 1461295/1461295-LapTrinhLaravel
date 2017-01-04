@@ -54,3 +54,40 @@ Route::get('/SanPham/{MaSP}', 'MenuController@ChiTietSP');
 Route::get('/Loai/{MaLoai}', 'TrangChuController@LoaiSP');
 
 Route::get('/timkiem','TrangChuController@timkiem');
+
+
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+
+Route::get('/auth/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+//Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('/auth/register', 'Auth\AuthController@postRegister');
+
+Route::get('/trangchudangnhap', 'TrangChuDangNhapController@home');
+
+Route::get('/productdangnhap', 'MenuDangNhapController@Menu');
+
+Route::get('/Loaidangnhap/{MaLoai}', 'TrangChuDangNhapController@LoaiSP');
+
+Route::get('/SanPhamdangnhap/{MaSP}', 'MenuDangNhapController@ChiTietSP');
+
+Route::get('/aboutdangnhap', function(){
+    return view('layout.dangnhap.aboutdangnhap');
+});
+
+Route::get('/servicesdangnhap', function(){
+    return view('layout.dangnhap.servicesdangnhap');
+});
+
+Route::get('/blogdangnhap', function(){
+    return view('layout.dangnhap.blogdangnhap');
+});
+
+Route::get('/contactdangnhap', function(){
+    return view('layout.dangnhap.contactdangnhap');
+});
+
+Route::get('/timkiemdangnhap','TrangChuDangNhapController@timkiem');

@@ -20,15 +20,14 @@
     <div>
         <div>
             <div id="logo">
-               @yield('logo')
+                @yield('logo')
             </div>
             <div>
                 <div>
-                    <a href="/auth/register">Đăng ký</a>
-                    <a href="/">Trợ giúp</a>
-                    <a href="/auth/login" class="last">Đăng nhập</a>
+                    <a href="/trangchudangnhap">Trợ giúp</a>
+                    <a href="/auth/logout" class="last">Đăng xuất</a>
                 </div>
-                <form action="/timkiem" method="get">
+                <form action="/timkiemdangnhap" method="get">
                     <input type="hidden" name="_token" value="{{csrf_token()}}";>
                     <input type="text" name = "tukhoa" id="search"  maxlength="30" />
                     <input type="submit" value="" id="searchbtn" />
@@ -37,12 +36,12 @@
         </div>
         <ul>
 
-            <li @yield('currenttrangchu')><a href="/">Trang chủ</a></li>
-            <li @yield('currentmenu')><a href="/product">Menu</a></li>
-            <li @yield('currentthongtin')><a href="/about">Thông tin</a></li>
-            <li @yield('currentdichvu')><a href="/services">Dịch vụ</a></li>
-            <li @yield('currentnhatky')><a href="/blog">Nhật ký </a></li>
-            <li @yield('currentlienhe')><a href="/contact">Liên hệ</a></li>
+            <li @yield('currenttrangchu')><a href="/trangchudangnhap">Trang chủ</a></li>
+            <li @yield('currentmenu')><a href="/productdangnhap">Menu</a></li>
+            <li @yield('currentthongtin')><a href="/aboutdangnhap">Thông tin</a></li>
+            <li @yield('currentdichvu')><a href="/servicesdangnhap">Dịch vụ</a></li>
+            <li @yield('currentnhatky')><a href="/blogdangnhap">Nhật ký </a></li>
+            <li @yield('currentlienhe')><a href="/contactdangnhap">Liên hệ</a></li>
         </ul>
 
         @yield('section')
@@ -50,7 +49,7 @@
     </div>
 </div>
 <div id="content">
-   @yield('content')
+    @yield('content')
 </div>
 <div id="footer">
     <div class="home">

@@ -13,25 +13,25 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 
-class TrangChuController extends Controller
+class TrangChuDangNhapController extends Controller
 {
     public function home()
     {
         $loaisanpham = DB::table('LoaiSP')->select('TenLoai', 'MaLoai')->skip(0)->take(3)->get();
-        return view('layout.indexdt', compact('loaisanpham'));
+        return view('layout.dangnhap.trangchudangnhap', compact('loaisanpham'));
     }
 
     public function LoaiSP($MaLoai)
     {
         $sanpham = DB::table('SanPham')->select('TenSP', 'GiaBan', 'HinhAnh', 'MoTa', 'MaSP')-> where('MaLoai', '=', $MaLoai)->skip(0)->take(6)->get();
-        return view('layout.productdt', compact('sanpham'));
+        return view('layout.dangnhap.productdangnhap', compact('sanpham'));
     }
 
     public function timkiem(Request $request)
     {
         $tukhoa = $request->tukhoa;
         $sanpham = DB::table('SanPham')->select('TenSP', 'GiaBan', 'HinhAnh', 'MoTa', 'MaSP')-> where('TenSP', 'like', "%$tukhoa%") -> orwhere('GiaBan', '=', (int)$tukhoa)->skip(0)->take(6)->get();
-        return view('layout.ketquatimkiem', compact('sanpham'));
+        return view('layout.dangnhap.ketquatimkiemdangnhap', compact('sanpham'));
     }
 
 
